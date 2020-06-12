@@ -1,0 +1,118 @@
+<template>
+  <div>
+    <el-dialog custom-class="m-detail-dialog m-car-detail" append-to-body :show-close="false" width="950px" :visible.sync="carDetailShow" @close="clearData">
+      <div class="u-detail-dialog-header" slot="title">
+        <span>选择房间类型</span>
+        <div class="f-detail-dialog-header-close" @click="carDetailShow = false">
+          <i class="el-icon-close "></i>
+        </div>
+      </div>
+      <div class="u-detail-dialog-content">
+        <div style="margin-bottom: 20px;">
+          <el-input placeholder="输入关键字进行过滤" v-model="filterText"></el-input>
+        </div>
+        <el-tree @check-change="getCheckNode" class="filter-tree" :data="roomTypes" node-key="value" show-checkbox default-expand-all :accordion="true" :filter-node-method="filterNode" ref="roomTypeTree">
+        </el-tree>
+        <!-- <div style="color: red;font-size: 12px;" v-show="!isCanChose">附属用房与技术业务用房只能单选</div> -->
+        <div style="color: red;font-size: 12px;" v-show="!isCanChose">房间类型一级只能单选</div>
+      </div>
+      <div class="el-dialog__footer">
+        <el-button class="u-submit-btn cancel-btn" @click="carDetailShow = false">取消</el-button>
+        <el-button class="u-submit-btn submit-btn" @click="saveRoom">保存</el-button>
+      </div>
+    </el-dialog>
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      organId: '',
+      isCanChose: true,
+      roomCheckList: [], // 选择后的节点
+      roomTypes: [], // 房间类型列表集合
+      filterText: '',
+      carDetailShow: false // 弹出框开关
+    };
+  },
+  watch: {
+    'filterText': function (val) {
+      this.$refs.roomTypeTree.filter(val);
+    }
+  },
+  methods: {
+    clearData() {
+      this.filterText = '';
+      this.isCanChose = true;
+      this.roomCheckList = []; // 选择后的节点
+      this.roomTypes = []; // 房间类型列表集合
+    },
+    // 初始化弹出框
+    openModal(roomTypeList, organId) {
+      if(organId) {
+        this.organId = organId;
+      }
+      this.filterText = '';
+      this.carDetailShow = true;
+      let roomValueList = []
+      roomTypeList.forEach((item, index) => {
+        roomValueList.push(item.value)
+      })
+      this.getSearchDate();
+      // if (roomTypeList.length > 0) {
+      setTimeout(() => {
+        this.setCheckedNodes(roomValueList);
+      }, 500)
+      // }
+    },
+    setCheckedNodes(roomValueList) {
+      this.$refs.roomTypeTree.setCheckedKeys(roomValueList)
+    },
+    filterNode(value, data) {
+      if (!value) return true;
+      return data.label.indexOf(value) !== -1;
+    },
+    getSearchDate() {
+      let params = {
+        useOrganId: this.organId || ''
+      }
+      this.$axiosGet(API.useManage_getAllRoomType, params).then(res => {
+        this.roomTypes = res.data;
+      })
+    },
+    getCheckNode() {
+      let firstNode = [];
+      this.$refs.roomTypeTree.getCheckedNodes(false, true).forEach((item, index) => {
+        if (item.typeFlag === 'FITST') {
+          firstNode.push(item.label);
+        }
+      })
+      this.isCanChose = true;
+      if (firstNode.length > 1) {
+        // 现在一级不能重复
+        let firstNodeLable = firstNode[0];
+        var hasMoreLabe = firstNode.some(lable => (lable != firstNodeLable)); 
+        hasMoreLabe  && (this.isCanChose = false);
+        // firstNode.forEach((item, index) => {
+        //   if (item === '附属用房' || item === '技术业务用房') {
+        //     this.isCanChose = false;
+        //   }
+        // })
+      }
+      if (this.isCanChose) {
+        this.roomCheckList = this.$refs.roomTypeTree.getCheckedNodes(false, true);
+      }
+    },
+    saveRoom() {
+      if (this.isCanChose) {
+        this.carDetailShow = false;
+        this.$emit('getNode', this.roomCheckList)
+      }
+    }
+  }
+};
+</script>
+
+<style lang="scss">
+</style>
+

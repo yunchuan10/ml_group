@@ -1,0 +1,503 @@
+@charset "UTF-8";
+
+/*标签的重置和设置默认值*/
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+p,
+blockquote,
+pre,
+hr,
+figure,
+table,
+caption,
+th,
+td,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+menu,
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header,
+footer,
+section,
+article,
+aside,
+nav,
+hgroup,
+address,
+figure,
+figcaption,
+menu,
+details {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+* {
+  outline: 0;
+}
+
+table {
+  width: 100%;
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html,
+body,
+fieldset,
+img,
+iframe,
+abbr {
+  border: 0;
+}
+
+img {
+  width: auto\9;
+  height: auto;
+  vertical-align: middle;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+
+i,
+cite,
+em,
+var,
+address,
+dfn,
+th {
+  font-style: normal;
+  font-weight: normal;
+}
+
+[hidefocus],
+summary {
+  outline: 0;
+}
+
+li {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+small {
+  font-size: 100%;
+}
+
+sup,
+sub {
+  font-size: 83%;
+}
+
+pre,
+code,
+kbd,
+samp {
+  font-family: inherit;
+}
+
+q:before,
+q:after {
+  content: none;
+}
+
+textarea {
+  font-family: 'Microsoft Yahei';
+  overflow: auto;
+  resize: none;
+}
+
+label,
+summary {
+  cursor: default;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+a {
+  color: #2f70ff;
+
+  &:hover {
+    color: #409eff;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+em,
+strong,
+b {
+  font-weight: bold;
+}
+
+del,
+ins,
+u,
+s,
+a,
+a:hover {
+  text-decoration: none;
+}
+
+body,
+textarea,
+input,
+button,
+select,
+keygen,
+legend {
+  color: #282c33;
+  outline: 0;
+}
+
+body {
+  font-family: 'Microsoft Yahei';
+  color: #2c3e50;
+  background-color: #f5f7fa;
+  overflow-x: hidden;
+}
+
+p {
+  word-break: break-all;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* function 字体、大小、颜色、排版*/
+/* 显示规则 */
+.f-none {
+  display: none;
+}
+
+.f-block {
+  display: block;
+}
+
+.f-inline-block {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+/* 浮动 */
+.f-pull-left {
+  float: left;
+}
+
+.f-pull-right {
+  float: right;
+}
+
+.f-clearfix:after {
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+  content: '';
+}
+
+.f-clearfix {
+  *zoom: 1;
+}
+
+/*添加边框开始*/
+.f-add-border {
+  border: 1px solid;
+}
+
+.f-add-border-top {
+  border-top: 1px solid;
+}
+
+.f-add-border-bottom {
+  border-bottom: 1px solid;
+}
+
+.f-add-border-left {
+  border-left: 1px solid;
+}
+
+.f-add-border-right {
+  border-right: 1px solid;
+}
+
+/* 清空边距 */
+.f-cancel-margin {
+  margin: 0 !important;
+}
+
+.f-cancel-margin-top {
+  margin-top: 0 !important;
+}
+
+.f-cancel-margin-left {
+  margin-left: 0 !important;
+}
+
+.f-cancel-margin-right {
+  margin-right: 0 !important;
+}
+
+.f-cancel-margin-bottom {
+  margin-bottom: 0 !important;
+}
+
+.f-cancel-padding {
+  padding: 0 !important;
+}
+
+.f-cancel-padding-top {
+  padding-top: 0 !important;
+}
+
+.f-cancel-padding-left {
+  padding-left: 0 !important;
+}
+
+.f-cancel-padding-right {
+  padding-right: 0 !important;
+}
+
+.f-cancel-padding-bottom {
+  padding-bottom: 0 !important;
+}
+
+/*取消背景图开始*/
+.f-cancel-background-img {
+  background-image: none !important;
+}
+
+/*取消边框开始*/
+.f-cancel-border {
+  border: none !important;
+}
+
+.f-cancel-border-top {
+  border-top: none !important;
+}
+
+.f-cancel-border-bottom {
+  border-bottom: none !important;
+}
+
+.f-cancel-border-left {
+  border-left: none !important;
+}
+
+.f-cancel-border-right {
+  border-right: none !important;
+}
+
+.f-cancel-box-shadow {
+  -webkit-box-shadow: inset 0 0 0 #fff !important;
+  -moz-box-shadow: inset 0 0 0 #fff !important;
+  box-shadow: inset 0 0 0 #fff !important;
+}
+
+/*清楚行高开始*/
+.f-cancel-line-height {
+  line-height: 1 !important;
+}
+
+//设置上下边距
+.f-margin-upd {
+  margin: 10px 0;
+}
+
+/*取消宽高开始*/
+.f-cancel-height {
+  height: auto !important;
+}
+
+.f-cancel-width {
+  width: auto !important;
+}
+
+.f-cancel-min-width {
+  min-width: 100% !important;
+}
+
+.f-cancel-max-height {
+  max-height: none !important;
+}
+
+/* 定位 */
+.f-relative {
+  position: relative;
+}
+
+.f-absolute {
+  position: absolute;
+}
+
+/* 行内、块级 */
+.f-inline {
+  display: inline;
+}
+
+.f-inline-block {
+  display: inline-block;
+}
+
+/* 溢出效果 */
+.f-hidden {
+  overflow: hidden;
+}
+
+.f-visible {
+  overflow: visible;
+}
+
+.f-overflow-x-auto {
+  overflow-x: auto;
+}
+
+.f-text-ellipsis {
+  /*溢出的内容以省略号排版*/
+  overflow: hidden;
+  word-wrap: normal;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* 字体 */
+.f-family-arial {
+  font-family: arial, \5b8b\4f53;
+}
+
+.f-family-yahei {
+  font-family: 'Microsoft YaHei', 'arial';
+}
+
+/* 字体粗细 */
+.f-weight-normal {
+  font-weight: normal;
+}
+
+.f-weight-bold {
+  font-weight: bold;
+}
+
+/* 字体对齐方式 */
+.f-text-left {
+  text-align: left;
+}
+
+.f-text-center {
+  text-align: center;
+}
+
+.f-text-right {
+  text-align: right;
+}
+
+.f-text-justify {
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+/* 水平对齐方式 */
+.f-vertical-align-top,
+.vertical-align-top * {
+  vertical-align: top;
+}
+
+.f-vertical-align-middle,
+.vertical-align-middle * {
+  vertical-align: middle;
+}
+
+.f-vertical-align-bottom,
+.vertical-align-bottom * {
+  vertical-align: bottom;
+}
+
+/* 字体下划线 */
+.f-decoration-underline,
+.f-decoration-underline:hover {
+  text-decoration: underline;
+}
+
+.f-decoration-none,
+.f-decoration-none:hover {
+  text-decoration: none;
+}
+
+/* 手势 */
+.f-cursor-pointer {
+  cursor: pointer;
+}
+
+.f-cursor-default {
+  cursor: default;
+}
+
+.f-cursor-help {
+  cursor: help;
+}
+
+.f-cursor-move {
+  cursor: move;
+}
+
+// 必填项红色标记
+.f-color-red {
+  color: #d72721;
+}
+
+// 注释内容间距
+.f-margin-bottom {
+  margin-bottom: 5px;
+}
+
+//没有数据默认样式
+.f-default-text {
+  text-align: center;
+  color: #909399;
+}
+

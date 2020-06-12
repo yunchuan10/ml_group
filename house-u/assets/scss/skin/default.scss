@@ -1,0 +1,83 @@
+$name: 'default';
+
+// 字体颜色、按钮字体颜色
+$table-font-color: #303133;
+$table-btns-border-color: #dcdfe6;
+
+// 页面主体色
+$main-color: #2f70ff;
+
+// 字体图标
+.iconfont:before {
+  padding-right: 5px;
+}
+.icon-shaixuan {
+  color: #2f70ff;
+}
+// 表格单元格属性的背景色
+$table-th-background-color: #f7faff;
+$table-a-color: #2f70ff;
+
+// 字体大小
+$font-small-font-size: 12px; //注释的小号字体
+$font-size: 14px; // 主体的字体大小
+$login-title-font-size: 20px; // 登录人字体大小
+$nav-font-size: 16px; // 导航字体大小
+$s-left-fontSize: 16px; // 左侧菜单 - 字体
+
+$main-bg-color: #f5f7fa;
+
+$g-head-bg-color: #0e50a7; // 头部背景颜色
+$g-head-font-color: #fff; // 头部字体颜色
+$login-info-bg-color: #004eb4; // 登录人颜色
+$nav-active-bg-color: #0045a0; // 导航激活状态的背景色
+
+$s-left-background: #ffffff color; // 左侧菜单 - 背景色
+$s-left-text-color: #3b455f; // 左侧菜单 - 字体颜色
+$s-left-select-color: #409eff; // 左侧菜单 - 选中字体颜色
+$s-left-menu-border: #467bfb; // 头部导航 - 菜单边框色
+$s-left-menu-type-background: #ffffff; // 头部导航-状态背景颜色
+$s-left-menu-background: #f5f6fa color; // 头部导航-选中菜单背景颜色
+
+// 状态
+$s-state-prohibited: #f56c6c; // 禁止
+$s-state-success: #67c23a; // 成功
+$s-state-caveat: #e6a23c; // 警告
+$s-state-fail: #909399; // 失败
+$s-state-apply: #409eff; // 禁止
+$state-font-color: #fff; // 状态组件字体颜色
+//房间状态
+$s-state-idle:#66c33a; //闲置
+$s-state-inuse:#6bb0f7; //已分配
+
+//分页
+$page-height: 34px;
+$page-line-height: 34px;
+
+// 菜单
+$g-left-bg-color: #ffffff;
+$menu-font-color: #303133;
+$menu-active-border-color: #2f70ff;
+$menu-active-bg-color: #f7faff;
+$menu-active-font-color: #2f70ff;
+
+// 正文
+$m-main-bg-color: #fff;
+// 面包屑标题
+$border-color: #dcdfe6;
+$breadcrumb-title-color: #303133;
+$breadcrumb-color: #909399;
+// 面包屑按钮
+$bread-btn-border-color: #2f70ff;
+$bread-btn-color: #2f70ff;
+$bread-btn-bg-color: #ffffff;
+// 查询按钮
+$search-but-border-color: #2f70ff;
+$search-but-color: #ffffff;
+$search-but-bg-color: #2f70ff;
+
+// 是否有上传图标icon
+$icon-dui4: #67c23a;
+$icon-cuo: #f56c6c;
+
+@import './../skin.scss'; // 公共样式结构
